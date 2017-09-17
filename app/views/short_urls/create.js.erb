@@ -2,7 +2,8 @@
 <% if @url_exist %>
   alert("Url already shrotened.");
 <% else %>
-  $('#short_url_url').focus();
-  $('#short_url_url').select();
+  $('#short_url_url').focus(function(){
+    $(this).select();
+  });
 <% end %>
 $('#short_url_url').val("<%= @url.short_url %>");
