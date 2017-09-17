@@ -1,2 +1,12 @@
-<h1>ShortUrls#index</h1>
-<p>Find me in app/views/short_urls/index.html.erb</p>
+<div class="container">
+   	<div class="row">
+		<div class="jumbotron">
+			<%= form_tag '/short_urls', method: :post, remote: true, class: 'form-inline' do %>
+			<div class="form-group">
+				<%= text_field_tag 'short_url[url]', nil, class: 'form-control', placeholder: 'Paste a url to shorten it' %>
+			</div>
+			<%= submit_tag 'Shorten', class: 'btn btn-primary' %>
+			<% end %>
+		</div>
+	</div>
+</div>
