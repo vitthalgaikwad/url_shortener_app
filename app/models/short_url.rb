@@ -6,7 +6,7 @@ class ShortUrl < ActiveRecord::Base
   end
 
   def self.short_url_to_id(url)
-    # Convert short url into base36 number and reverse it then remove last number which is nothing but salt
+    # Convert short url into base36 number and reverse it, then remove last number which is nothing but salt
     url.to_i(36).to_s.reverse.chop.to_i
   end
 end

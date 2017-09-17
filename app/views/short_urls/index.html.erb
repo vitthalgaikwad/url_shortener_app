@@ -1,12 +1,38 @@
 <div class="container">
    	<div class="row">
 		<div class="jumbotron">
-			<%= form_tag '/short_urls', method: :post, remote: true, class: 'form-inline' do %>
+
+			<%= form_tag '/short_urls', method: :post, remote: true, class: 'form-inline', id: 'short_url_form' do %>
+			<h4>We help you to short URLs</h4>
 			<div class="form-group">
 				<%= text_field_tag 'short_url[url]', nil, class: 'form-control', placeholder: 'Paste a url to shorten it' %>
 			</div>
 			<%= submit_tag 'Shorten', class: 'btn btn-primary' %>
 			<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="panel panel-default">
+			<div class="panel-heading">Most frequently accessed links</div>
+
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Short URL</th>
+						<th>Visits</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @most_visited_urls.each do |url| %>
+						<tr>
+							<td><%= link_to url.short_url, url.short_url %></td>
+							<td><%= url.visit_count %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
 		</div>
 	</div>
 </div>

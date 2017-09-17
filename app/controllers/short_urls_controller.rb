@@ -1,9 +1,12 @@
 class ShortUrlsController < ApplicationController
+  
   def index
+    @most_visited_urls = ShortUrl.all.select('id, salt, visit_count').order('visit_count desc').limit(100)
   end
 
   def create
     if ShortUrl.exists?(original_url: short_url_params[:url])
+      @url = ShortUrl.where(original_url: short_url_params[:url]).first
       @url_exist = true
     else
       @url = ShortUrl.new(salt: rand(8)+1, original_url: short_url_params[:url])   # Salt is any random number between 1 to 9
