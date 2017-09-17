@@ -1,28 +1,39 @@
-== README
+# URL Shortener
+You can shorten a long URLs using this application like bitly and tinyURL.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+Follow below instruction they will get you a copy of the project up and running on your local machine for development and testing purposes. This app is already deployed on heroku check * [https://l2s.herokuapp.com](https://l2s.herokuapp.com) 
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+```
+Ruby 2.2.1
+Rails 4.2.3
+Postgresql database and don't forget to change the database username in database.yml
 
-* Configuration
+```
 
-* Database creation
+### Installation
 
-* Database initialization
+Follow below steps sequentially:
 
-* How to run the test suite
+```
+git clone https://github.com/vitthalgaikwad/url_shortener_app.git
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+cd url_shortener_app
+```
 
-* Deployment instructions
+```
+bundle install
+```
 
-* ...
+```
+rails db:create
+rails db:migrate
+rails s 
+```
 
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Now you can see the app running here [http://localhost:3000/](http://localhost:3000/) 
